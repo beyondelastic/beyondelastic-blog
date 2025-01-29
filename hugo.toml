@@ -1,3 +1,9 @@
-baseURL = 'https://example.org/'
+[module]
+[module.hugoVersion]
+extended = true
+min = "0.87.0"
+max = "0.140.2"
+baseURL = 'https://beyondelastic.github.io/'
 languageCode = 'en-us'
-title = 'My New Hugo Site'
+title = 'BeyondElastic'
+theme = 'blowfish'
