@@ -7,7 +7,17 @@ baseURL = "https://beyondelastic.github.io"
 laguageCode = "en"
 defaultContentLanguage = "en"
 
+title = "BeyondElastic"
 colorScheme = "avocado"
+
+[params.author]
+name = "My name"
+#image = "img/author.jpg"
+headline = "A generally awesome human"
+bio = "A little bit about me"
+links = [
+  { twitter = "https://twitter.com/username" }
+]
 
 # pluralizeListTitles = "true" # hugo function useful for non-english languages, find out more in  https://gohugo.io/getting-started/configuration/#pluralizelisttitles
 
