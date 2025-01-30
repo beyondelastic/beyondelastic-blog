@@ -3,9 +3,11 @@
 # https://blowfish.page/docs/getting-started/
 
 theme = "blowfish" # UNCOMMENT THIS LINE
-baseURL = "https://beyondelastic.github.io/"
+baseURL = "https://beyondelastic.github.io"
+laguageCode = "en"
 defaultContentLanguage = "en"
-title = "BeyondElastic"
+
+colorScheme = "avocado"
 
 # pluralizeListTitles = "true" # hugo function useful for non-english languages, find out more in  https://gohugo.io/getting-started/configuration/#pluralizelisttitles
 
