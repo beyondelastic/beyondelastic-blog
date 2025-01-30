@@ -20,6 +20,10 @@
   pageRef = "author"
   weight = 20
 
+[[main]]
+  name = "Disclaimer"
+  pageRef = "disclaimer"
+  weight = 30
 
 #[[main]]
 #  name = "Parent"
