@@ -4,7 +4,7 @@ draft = false
 title = 'Author'
 +++
 
-![alt](/images/alex.jpg)
+![me](/images/alex.jpg)
 
 Welcome to my blog! My name is Alexander Ullah, and I am a proficient, hands-on, and customer-oriented technologist with 20+ years of experience and a passion for Kubernetes and cloud-native technologies, modern apps, and AI. As part of Microsoft's Digital & Application Innovation team, I support our valued customers with their transformation from legacy to modern application platforms to achieve better business outcomes. In addition, I create content and speak at public conferences to inform the community about emerging technologies and the Microsoft Azure portfolio.
 
@@ -12,4 +12,9 @@ You can also find me on [LinkedIn](https://www.linkedin.com/in/alexander-ullah-a
 
 Please be aware that all posts and opinions are my own, see [Disclaimer](https://beyondelastic.github.io/disclaimer)
 
-![alt](/images/ms-badge2.png) ![alt](/images/ms-badge1.png)
+<style type="text/css">
+  .left{float:left;}
+</style>
+
+<img class="left" src="/images/ms-badge1.png" />
+<img class="left" src="/images/ms-badge2.png" />
