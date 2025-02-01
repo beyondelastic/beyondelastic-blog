@@ -11,3 +11,5 @@ Welcome to my blog! My name is Alexander Ullah, and I am a proficient, hands-on,
 You can also find me on [LinkedIn](https://www.linkedin.com/in/alexander-ullah-a278a0b7/).
 
 Please be aware that all posts and opinions are my own, see [Disclaimer](https://beyondelastic.github.io/disclaimer)
+
+![alt](/images/ms-badge2.png) ![alt](/images/ms-badge1.png)
