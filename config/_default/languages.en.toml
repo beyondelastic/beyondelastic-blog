@@ -9,7 +9,7 @@ title = "BeyondElastic"
   isoCode = "en"
   rtl = false
   dateFormat = "2 January 2006"
-  # logo = "img/logo.png"
+  # logo = "img/logo.jpg"
   # secondaryLogo = "img/secondary-logo.png"
   # description = "My awesome website"
   # copyright = "Copy, _right?_ :thinking_face:"
@@ -17,7 +17,7 @@ title = "BeyondElastic"
 [params.author]
    name = "Alexander Ullah"
 #   email = "alexander.ullah@gmail.com"
-#   image = "img/blowfish_logo.png"
+#    image = "img/logo.jpg"
 #   imageQuality = 96
    headline = "Technical Specialist"
 #   bio = "A little bit about you"

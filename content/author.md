@@ -12,9 +12,12 @@ You can also find me on [LinkedIn](https://www.linkedin.com/in/alexander-ullah-a
 
 Please be aware that all posts and opinions are my own, see [Disclaimer](https://beyondelastic.github.io/disclaimer)
 
-<style type="text/css">
-  .left{float:left;}
-</style>
+{{< gallery >}}
+  <img src="/images/ms-badge1.png" class="grid-w33" />
+  <img src="/images/ms-badge2.png" class="grid-w33" />
+  <img src="/images/cks.png" class="grid-w33" />
+  <img src="/images/ckad.png" class="grid-w33" />
+  <img src="/images/cka.png" class="grid-w33" />
+  <img src="/images/vexpert2025.png" class="grid-w33" />
+{{< /gallery >}}
 
-<img class="left" src="/images/ms-badge1.png" />
-<img class="left" src="/images/ms-badge2.png" />
