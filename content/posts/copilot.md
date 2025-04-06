@@ -77,6 +77,19 @@ Explanation:
 ### Copilot for pull requests
 
 
+### Copilot Extensions
+
+A GitHub Copilot Extension is an add-on that provides customized capabilities for GitHub Copilot Chat.
+
+For example:
+
+Querying documentation: A Copilot Extension can allow Copilot Chat to query a third-party documentation service to find information about a specific topic.
+AI-assisted coding: A Copilot Extension can use a third-party AI model to provide code suggestions.
+Data retrieval: A Copilot Extension can allow Copilot Chat to query a third-party data service to retrieve information about a specific topic.
+Action execution: A Copilot Extension can allow Copilot Chat to execute a specific action, such as posting to a message board or updating a tracking item in an external system.
+
+A GitHub Copilot Extension is NOT the GitHub Copilot VS Code Extension found in your IDE, but rather an extra capability to enhance it.
+
 ## Summary
 
 
