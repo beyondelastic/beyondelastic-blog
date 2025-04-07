@@ -17,7 +17,7 @@ title = "BeyondElastic"
 [params.author]
    name = "Alexander Ullah"
 #   email = "alexander.ullah@gmail.com"
-#    image = "img/logo.jpg"
+#   image = "img/logo.jpg"
 #   imageQuality = 96
    headline = "Technical Specialist"
 #   bio = "A little bit about you"

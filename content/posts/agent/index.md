@@ -2,6 +2,8 @@
 date = '2025-04-02T13:15:46+02:00'
 draft = false
 title = 'Azure AI Agent Service'
+categories = ['AI']
+tags = ['Agents', 'Foundry', 'Azure']
 +++
 
 # Intro to Azure AI Agent Service
