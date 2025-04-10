@@ -1,12 +1,12 @@
 +++
 date = '2025-04-10T09:15:23+01:00'
 draft = false
-title = 'Semantic Kernel and Multi-Agent AI Apps'
+title = 'Intro to Semantic Kernel and Multi-Agent AI Apps'
 categories = ['AI']
 tags = ['Agents', 'Foundry', 'Azure', 'Semantic Kernel', 'Multi-Agent']
 +++
 
-# Intro to Semantic Kernel and Multi-Agent AI Apps
+# Intro
 
 In my last post, I have covered Azure [AI Agent Service](https://beyondelastic.github.io/posts/agent/) and how it can be used to easily build and run AI agents on Azure. This time, we are going to look at Semantic Kernel as a framework to build, orchestrate and deploy AI agents or multi-agent applications. Semantic Kernel is an open-source development kit by Microsoft that offers a unified framework with a plugin-based architecture for easier integration and reduced complexity. It serves as efficient middleware, enabling fast development of enterprise-grade solutions by combining prompts with existing APIs.
 
@@ -30,7 +30,7 @@ In terms of API, the Chat Completions API is lightweight and stateless and can b
 
 As an execution engine, we will use the Azure AI Agent Service. We are not going to cover the infrastructure requirements in this blog post. Nevertheless, if you want to get started quickly, simply deploy this [bicep template](https://github.com/Azure-Samples/azureai-samples/tree/main/scenarios/Agents/setup/standard-agent) for an standard Azure AI Agent deployment. 
 
-### Prepare local dev envrionment
+### Prepare local dev environment
 
 For our local development environment, we need to install the following packages:
 ```sh
@@ -47,6 +47,8 @@ AZURE_AI_AGENT_MODEL_DEPLOYMENT_NAME="your_model_deployment"
 ## Coding
 
 My goal is to create multiple AI agents that act as Basketball coaches. A Head Coach and an Assistant Coach that will exchange ideas and come up with a game plan for a specific game situation. 
+
+![group-chat](/group-chat.png)
 
 For this blog, we will keep it very simple and don't play too much with plugins or extensions. We just want to create a group chat with specialized agents. 
 
@@ -264,4 +266,5 @@ This was a very simple example, but it shows how multiple agents can have differ
 - [Azure AI Agent standard setup bicep template](https://github.com/Azure-Samples/azureai-samples/tree/main/scenarios/Agents/setup/standard-agent) 
 - [Intro to Azure AI Agent Service](https://beyondelastic.github.io/posts/agent/)
 - [Microsoft Learn AI Agent Fundamentals](https://learn.microsoft.com/en-us/training/modules/ai-agent-fundamentals/)
+- [Introducing enterprise multi-agent support in Semantic Kernel](https://devblogs.microsoft.com/semantic-kernel/introducing-agents-in-semantic-kernel/)
 - [Semantic Kernel Agents are now Generally Available](https://devblogs.microsoft.com/semantic-kernel/semantic-kernel-agents-are-now-generally-available/)

@@ -1,12 +1,12 @@
 +++
 date = '2025-04-02T13:15:46+02:00'
 draft = false
-title = 'Azure AI Agent Service'
+title = 'Intro to Azure AI Agent Service'
 categories = ['AI']
 tags = ['Agents', 'Foundry', 'Azure']
 +++
 
-# Intro to Azure AI Agent Service
+# Intro
 
 AI Agents are in talks, and we are going to take a look at the **Azure AI Agent Service**. Why should you care? Because AI Agents are the next evolution of AI-driven applications, and they will help you to automate and execute more complicated multistep tasks completely autonomously or with a human in a loop. Here are two blog posts that are worth reading to set the scene:
 
@@ -59,7 +59,7 @@ We can also view the connected resources that have been created as part of the d
 
 ![Connected resources](/project-resources.png)
 
-### Prepare local dev envrionment
+### Prepare local dev environment
 
 For our local development environment, we need to install the following packages:
 ```sh
