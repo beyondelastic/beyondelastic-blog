@@ -1,339 +1,267 @@
 +++
-date = '2025-03-25T09:15:23+01:00'
+date = '2025-04-10T09:15:23+01:00'
 draft = true
 title = 'Multi Agent'
+categories = ['AI']
+tags = ['Agents', 'Foundry', 'Azure', 'Semantic Kernel', 'Multi-Agent']
 +++
 
-# AI Agent Service
+# Intro to Semantic Kernel and Multi-Agent AI Apps
 
-## Tools
+In my last post, I have covered Azure [AI Agent Service](https://beyondelastic.github.io/posts/agent/) and how it can be used to easily build and run AI agents on Azure. This time, we are going to look at Semantic Kernel as a framework to build, orchestrate and deploy AI agents or multi-agent applications. Semantic Kernel is an open-source development kit by Microsoft that offers a unified framework with a plugin-based architecture for easier integration and reduced complexity. It serves as efficient middleware, enabling fast development of enterprise-grade solutions by combining prompts with existing APIs.
 
-Through the use of tools, you can provide your agent additional functionality to execute actions on your behalf.
+The Semantic Kernel SDK is available for C#, Python and Java. More details can be found on the [official GitHub repository](https://github.com/microsoft/semantic-kernel) and the [official Microsoft documentation](https://learn.microsoft.com/en-us/semantic-kernel/overview/).
 
-The AI Agent Service provides built-in tools for gathering knowledge and interpreting code, which provide your agent with some powerful functionality. However, sometimes your agent needs to be able to complete specific tasks or actions that an AI model would struggle to handle on its own. To accomplish these actions, you can provide your agent a custom tool.
+In this blog post, we are going to combine the Azure AI Agent Service with Semantic Kernel to build a multi-agent AI application with group chat functionality. 
 
-Benefits of custom tools
+## Background
 
-- Enhanced productivity: Automate repetitive tasks and streamline workflows.
-- Improved accuracy: Provide precise and consistent outputs, reducing human error.
-- Tailored solutions: Address specific business needs and optimize processes.
+If you are new to the topic, it can be a bit confusing as there are many options to choose from. Which framework should I use? AutoGen or Semantic Kernel? Which API should I use the Chat Completions API, the Assistants API or the Azure AI Agent Service? Well, famous last words "it depends" and "things are evolving fast". 
 
-![agent-tool-diagram](/agent-tool-diagram.png)
+The framework discussion is manly driven by whether you need enterprise-grade support or not. If that is a yes, you should look towards Semantic Kernel. If you are still in the ideation/testing phase, and you need the latest and greatest functionality, take a look at AutoGen. Both teams are working on strategic convergence and integrations between both frameworks, as you can read in the following blog posts:
 
-The diagram shows the process of an agent choosing to use the provided tool:
+- [Microsoft’s Agentic AI Frameworks: AutoGen and Semantic Kernel](https://devblogs.microsoft.com/semantic-kernel/microsofts-agentic-ai-frameworks-autogen-and-semantic-kernel/)
+- [Semantic Kernel Roadmap H1 2025: Accelerating Agents, Processes, and Integration](https://devblogs.microsoft.com/semantic-kernel/semantic-kernel-roadmap-h1-2025-accelerating-agents-processes-and-integration/)
+- [AutoGen and Semantic Kernel, Part 2](https://devblogs.microsoft.com/semantic-kernel/semantic-kernel-and-autogen-part-2/)
 
-1. A user asks an agent for a report, such as about recent snowfall in their local mountains.
-2. The agent determines the provided tool to retrieve snowfall for a specific location will be useful, and calls that tool.
-3. The agent may choose to use other tools to best accomplish the user's task, such as retrieve knowledge using a built-in tool.
-4. The agent then outputs the report and responds to the user.
+In terms of API, the Chat Completions API is lightweight and stateless and can be a good fit for simple tasks. The Assistants API is stateful (managing conversation history) and can be a good fit for more complex scenarios. Azure AI Agent Service delivers all the functionality of the Assistants API plus flexible model choice, out of the box tools, tracing and more. 
 
-Tool Options:
+## Requirements
 
-- OpenAPI specified tools: These tools allow you to connect your Azure AI Agent to an external API using an OpenAPI 3.0 specification. This provides standardized, automated, and scalable API integrations that enhance the capabilities of your agent. OpenAPI specifications describe HTTP APIs, enabling people to understand how an API works, generate client code, create tests, and apply design standards.
-- Function calling: Function calling allows you to describe the structure of functions to an agent and return the functions that need to be called along with their arguments. This feature is useful for integrating custom logic and workflows into your AI agents.
-- Azure Functions: Azure Functions enable you to create intelligent, event-driven applications with minimal overhead. They support triggers and bindings, which simplify how your AI Agents interact with external systems and services. Triggers determine when a function executes, while bindings facilitate streamlined connections to input or output data sources.
+As an execution engine, we will use the Azure AI Agent Service. We are not going to cover the infrastructure requirements in this blog post. Nevertheless, if you want to get started quickly, simply deploy this [bicep template](https://github.com/Azure-Samples/azureai-samples/tree/main/scenarios/Agents/setup/standard-agent) for an standard Azure AI Agent deployment. 
 
-Example - Customer Support Automation
+### Prepare local dev envrionment
 
-Scenario: A retail company integrates a custom tool that connects the Azure AI Agent to their customer relationship management (CRM) system.
-Functionality: The AI agent can retrieve customer order histories, process refunds, and provide real-time updates on shipping statuses.
-Outcome: Faster resolution of customer queries, reduced workload for support teams, and improved customer satisfaction.
-
-Example - Inventory Management
-
-Scenario: A manufacturing company develops a custom tool to link the AI agent with their inventory management system.
-Functionality: The AI agent can check stock levels, predict restocking needs using historical data, and place orders with suppliers automatically.
-Outcome: Streamlined inventory processes and optimized supply chain operations.
-
-## Defining and using a function
-
-Snowfall tracking example:
-
-```
-import json
-
-def recent_snowfall(location: str) -> str:
-    """
-    Fetches recent snowfall totals for a given location.
-    :param location: The city name.
-    :return: Snowfall details as a JSON string.
-    """
-    mock_snow_data = {"Seattle": "0 inches", "Denver": "2 inches"}
-    snow = mock_snow_data.get(location, "Data not available.")
-    return json.dumps({"location": location, "snowfall": snow})
-
-user_functions: Set[Callable[..., Any]] = {
-    recent_snowfall,
-}
+For our local development environment, we need to install the following packages:
+```sh
+pip install python-dotenv azure-identity semantic-kernel[azure]  
 ```
 
-Register the function with your agent using the Azure AI Agent SDK:
-
-```
-# Initialize agent toolset with user functions
-functions = FunctionTool(user_functions)
-toolset = ToolSet()
-toolset.add(functions)
-
-# Create your agent with the toolset
-agent = project_client.agents.create_agent(
-    model="gpt-4o-mini",
-    name="snowfall-agent",
-    instructions="You are a weather assistant tracking snowfall. Use the provided functions to answer questions.",
-    toolset={"functions": [recent_snowfall]}
-)
-```
-
-The agent can now call recent_snowfall dynamically when prompted by the user.
-
-## OpenAPI defined tools
-
-OpenAPI defined tools allow agents to interact with external APIs using standardized specifications. This approach simplifies API integration and ensures compatibility with various services. Azure AI Agent Service uses OpenAPI 3.0 specified tools.
-
-Currently, three authentication types are supported with OpenAPI 3.0 tools: anonymous, API key, and managed identity.
-
-Prepare the OpenAPI spec: Create a JSON file (snowfall_openapi.json) describing the API.
-
-```
-{
-  "openapi": "3.0.0",
-  "info": {
-    "title": "Snowfall API",
-    "version": "1.0.0"
-  },
-  "paths": {
-    "/snow": {
-      "get": {
-        "summary": "Get snowfall information",
-        "parameters": [
-          {
-            "name": "location",
-            "in": "query",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successful response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "location": {"type": "string"},
-                    "snow": {"type": "string"}
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-}
-```
-
-Register the OpenAPI tool:
-```
-from azure.ai.projects.models import OpenApiTool, OpenApiAnonymousAuthDetails
-
-with open("snowfall_openapi.json", "r") as f:
-    openapi_spec = json.load(f)
-
-auth = OpenApiAnonymousAuthDetails()
-openapi_tool = OpenApiTool(name="snowfall_api", spec=openapi_spec, auth=auth)
-
-agent = project_client.agents.create_agent(
-    model="gpt-4o-mini",
-    name="openapi-agent",
-    instructions="You are a snowfall tracking assistant. Use the API to fetch snowfall data.",
-    tools=[openapi_tool]
-)
-```
-
-## Using Azure Functions with a queue trigger
+Next, we will use a local .env file to specify some variables to connect to our Azure AI Foundry Project. 
 
 ````
-storage_service_endpoint = "https://<your-storage>.queue.core.windows.net"
-
-azure_function_tool = AzureFunctionTool(
-    name="get_snowfall",
-    description="Get snowfall information using Azure Function",
-    parameters={
-            "type": "object",
-            "properties": {
-                "location": {"type": "string", "description": "The location to check snowfall."},
-            },
-            "required": ["location"],
-        },
-    input_queue=AzureFunctionStorageQueue(
-        queue_name="input",
-        storage_service_endpoint=storage_service_endpoint,
-    ),
-    output_queue=AzureFunctionStorageQueue(
-        queue_name="output",
-        storage_service_endpoint=storage_service_endpoint,
-    ),
-)
-
-agent = project_client.agents.create_agent(
-    model=os.environ["MODEL_DEPLOYMENT_NAME"],
-    name="azure-function-agent",
-    instructions="You are a snowfall tracking agent. Use the provided Azure Function to fetch snowfall based on location.",
-    tools=azure_function_tool.definitions,
-)
+AZURE_AI_AGENT_PROJECT_CONNECTION_STRING="your_project_connection_string"
+AZURE_AI_AGENT_MODEL_DEPLOYMENT_NAME="your_model_deployment"
 ````
 
+## Coding
 
-The agent can now send requests to the Azure Function via a storage queue and process the results.
+My goal is to create multiple AI agents that act as Basketball coaches. A Head Coach and an Assistant Coach that will exchange ideas and come up with a game plan for a specific game situation. 
 
-By using one of the above methods (or a combination of these options) for implementing a custom tool, you can create powerful, flexible, and intelligent agents with Azure AI Agent Service. These integrations enable seamless interaction with external systems, real-time processing, and scalable workflows, making it easier to build custom solutions tailored to your needs.
+For this blog, we will keep it very simple and don't play too much with plugins or extensions. We just want to create a group chat with specialized agents. 
 
-# Multi Agent
+### Building the mulit-agent app
 
-## Semantic Kernel
+As always we need to add some references first. This time we are going to import the asyncio model as we need to execute the main function asynchronously. This allows the program to perform non-blocking operations, such as interacting with Azure AI services, creating agents, and managing the group chat. Additionally, we are going to import some components from the Semantic Kernel library. More about these Semantic Kernel classes can be found later in the text. 
 
-A multi-agent solution allows agents to collaborate within the same conversation
+```python
+# add references
+import asyncio
+from dotenv import load_dotenv
+from azure.identity.aio import DefaultAzureCredential
+from semantic_kernel.agents import AzureAIAgent, AzureAIAgentSettings, AgentGroupChat
+from semantic_kernel.agents.strategies import TerminationStrategy, SequentialSelectionStrategy
+from semantic_kernel.contents.utils.author_role import AuthorRole
+```
 
-Imagine you're trying to address common DevOps challenges such as monitoring application performance, identifying issues, and deploying fixes. A multi-agent system could consist of four specialized agents working collaboratively:
+Now we are going to load the environment variables from the .env file and define the agent names and instructions as well as the task they should work on. 
 
-The Monitoring Agent continuously ingests logs and metrics, detects anomalies using natural language processing (NLP), and triggers alerts when issues arise.
+```python
+# get configuration settings
+load_dotenv()
 
-The Root Cause Analysis Agent then correlates these anomalies with recent system changes, using machine learning models or predefined rules to pinpoint the root cause of the problem.
+# agent instructions
+HEAD_COACH = "HeadCoach"
+HEAD_COACH_INSTRUCTIONS = """
+You are a Basketball Head Coach that knows everything about offensive plays and strategies. 
+You respond to specific game situations with advice on how to change the game plan. You can ask for more information about the game situation if needed. 
+For offensive plays and strategies, you will decide on the strategy yourself. If the game situation demands a change for defensive plays and strategies, you will ask your Assistant Coach for advice.
+You will use the advice given by the Assistant Coach regarding defensive adjustments and your own decision for offensive adjustments to create the final game plan.
 
-Once the root cause is identified, the Automated Deployment Agent takes over to implement fixes or roll back problematic changes by interacting with CI/CD pipelines and executing deployment scripts.
-
-Finally, the Reporting Agent generates detailed reports summarizing the anomalies, root causes, and resolutions, and notifies stakeholders via email or other communication channels.
-
-### Semantic Kernel Agent Framework
-
-The Semantic Kernel Agent Framework is a framework designed to help developers build AI-powered agents. These agents can process user inputs, make decisions, and execute tasks autonomously by leveraging large language models and traditional programming logic. The framework provides structured components for defining AI-driven workflows, enabling agents to interact with users, APIs, and external services
-
-**Core concepts**
-The Agent Framework in Semantic Kernel provides architecture on top of existing Semantic Kernel resources, including:
-
-Agents
-
-Agents are intelligent, AI-driven entities capable of reasoning and executing tasks. They use language models, functions, and memory to make decisions dynamically.
-
-Agent collaboration
-
-Agents can collaborate together through an agent group chat, which enables multiple agents to join the same chat, even of different agent types. Agent group chats determine which agent should respond and how to determine if the conversation is finished.
-
-The features that power Semantic Kernel are also still available within the Agent Framework, including:
-
-Kernel
-
-The kernel is the central component of the Semantic Kernel. The kernel acts as the execution engine, managing AI interactions, function orchestration, and memory.
-
-Tools and plugins
-
-Plugins align with existing Semantic Kernel features, enabling agents to dynamically interact with external services or execute complex tasks through function calling. Within the Agent Framework, tools are available to provide extra functionality to your agents, such as file searching or code interpreter, similar to tool usage in Azure AI Agent service. Agents use tools and plugins to perform specific tasks.
-
-History
-
-Agents can maintain chat history across multiple interactions, allowing them to track previous interactions and adapt responses accordingly. The conversation history is always accessible by the agents, either as a whole or for a specific agent's chat history.
-
-### Types of agents
-
-The Semantic Kernel Agent Framework supports several different types of agents, including:
-
-Azure AI Agent - a specialized agent within the Semantic Kernel Agent Framework. The AsureAIAgent type is designed to provide advanced conversational capabilities with seamless tool integration. It automates tool calling and securely manages conversation history using threads, reducing the overhead of maintaining state. The AzureAIAgent also supports a variety of built-in tools, including file retrieval, code execution, and data interaction via Bing, Azure AI Search, Azure Functions, and OpenAPI.
-
-Chat Completion Agent: designed for chat completion and conversation interfaces. The ChatCompletionAgent type mirrors the features and patterns in the underlying AI Service to support natural language processing, contextual understanding, and dialogue management.
-
-OpenAI Assistant Agent: designed for more advanced capabilities and multi-step tasks. The OpenAIAssistantAgent type supports goal-driven interactions with additional features like code interpretation and file search.
-
-## Design an agent selection strategy
-
-Agent collaboration, called AgentGroupChat, has critical components to consider that aren't necessary with single agents or non-agentic Semantic Kernel applications.
-
-The following units discuss an example multi-agent solution, where we have two agents in a writer-reviewer scenario:
-
-A copywriter agent who writes online content, called CopywriterAgent.
-A creative director only reviewing the proposals, called ReviewingDirectorAgent.
-
-### Agent selection
-
-Choosing the agent best suited to respond to a user's query is pivotal, especially in multi-agent systems where agents specialize in different domains.
-
-For example, if you chat with the agents asking for a slogan for a new scrubbing brush, the ReviewingDirectorAgent shouldn't be invoked to respond since they don't know how to write slogans. Instead, having the CopywriterAgent respond would provide the user an accurate response.
-
-### How does the framework select agents?
-
-**Single-turn conversations**
-
-Intent recognition: The framework analyzes the user's query to identify the intent and match it with the most relevant agent.
-Predefined rules: Developers can configure routing rules to direct specific queries to designated agents in their application.
-
-**Multi-turn conversations**
-
-Context tracking: The framework maintains a record of the conversation history to understand the user's intent and select the appropriate agent.
-Dynamic switching: If the topic shifts, the framework dynamically switches to an agent specializing in the new domain in the middle of the conversation.
-
-For multi-turn agents, agent selection is determined by a selection strategy. The selection strategy is defined within the framework, either by using one of the predefined selection strategies or by extending a base class to define custom selection behavior. The selection strategy is defined in the creation of the AgentGroupChat.
-
-Defining your selection function is done by creating a kernel function from a prompt. In our writer and reviewer example, your selection strategy prompt might be:
-
-`````
-prompt=f"""
-    Determine which participant takes the next turn in a conversation based on the the most recent participant.
-    State only the name of the participant to take the next turn.
-    No participant should take more than one turn in a row.
-
-    Choose only from these participants:
-    - ReviewingDirectorAgent
-    - CopywriterAgent
-
-    Always follow these rules when selecting the next participant:
-    - After user input, it is CopywriterAgent's turn.
-    - After CopywriterAgent replies, it is ReviewingDirectorAgent's turn.
-    - After ReviewingDirectorAgent provides feedback, it is CopywriterAgent's turn.
-
-    History:
-    {{$history}}
+RULES:
+- Use the instructions provided.
+- Prepend your response with this text: "head_coach > "
+- Do not directly answer the question if it is related to defensive strategies. Instead, ask your Assistant Coach for advice.
+- Do not use the words "final game plan" unless you have created a final game plan according to the instructions.
+- Add "final game plan" to the end of your response if you have created a final game plan according to the instructions.
 """
-`````
-If your preferred interaction should always have a certain agent respond first, that can be specified in your selection strategy as seen in the prompt above.
 
-## Define a chat termination strategy
+ASSISTANT_COACH = "AssistantCoach"
+ASSISTANT_COACH_INSTRUCTIONS = """
+You are a Basketball Assistant Coach that knows defensive plays and strategies.
+You give advice to your Head Coach for specific game situations that require defensive adjustment.
 
-Multi-turn conversations have responses returned asynchronously, so the conversation can develop naturally. However, the agents need to know when to stop a conversation, which is determined by the termination strategy
+RULES:
+- Use the instructions provided.
+- Prepend your response with this text: "assistant_coach > "
+- You are not allowed to give advice on offensive plays and strategies.
+- You don't decide the final game strategy and plan, you only give advice to the Head Coach.
+- Your advice should be clear and concise and should not include any unnecessary information.
+"""
 
-A termination strategy ensures that conversations or tasks conclude appropriately. This strategy prevents unnecessary messages to the user, limits resource usage, and improves the overall user experience.
+# agent task
+TASK = "Could you please give me advice on how to change the game strategy for the next quarter? We are playing zone defense, and the other team just scored 10 points in a row. We need to change our strategy to stop them. What should we do?"
+```
 
-For example, in the writer-reviewer agent scenario, once the ReviewingDirectorAgent reviews and approves our scrubbing brush slogan from the CopywriterAgent, us humans know the conversation should be over. However, if we don't define when to terminate the conversation, the CopywriterAgent is going to keep submitting slogans unnecessarily.
+So far, so good. We will now start with our main function. We retrieve the configuration settings with the AzureAIAgentSettings.create method and use the DefaultAzureCredential class to authenticate against our Azure Services, and lastly, we create a client for interacting with the Azure AI agent service.
 
-### Why use a termination strategy?
+```python
+async def main():
 
-Efficiency: It prevents endless loops or prolonged interactions, saving computational resources.
-User satisfaction: Users receive concise and relevant responses, avoiding frustration from overly long conversations.
-Goal completion: The use of an agent is to complete a task. By terminating appropriately. it confirms when a task or conversation has achieved its intended purpose.
+    ai_agent_settings = AzureAIAgentSettings.create()
 
-### How does the framework implement termination strategies?
+    async with (
+        DefaultAzureCredential(exclude_environment_credential=True, 
+            exclude_managed_identity_credential=True) as creds,
+        AzureAIAgent.create_client(credential=creds) as client,
+    ):
+```
 
-Similar to how the selection strategy is specified, developers can specify a termination strategy or use one of the predefined strategies. Termination strategies can also define a maximum number of iterations a conversation should be limited to.
+The next step is to create our agents on the Azure AI Agent Service and wrap them into Semantic Kernel agents using the AzureAIAgent class.
 
-Termination strategies can be created using a prompt, such as:
+```python
+        # create the head-coach agent on the Azure AI agent service
+        headcoach_agent_definition = await client.agents.create_agent(
+            model=ai_agent_settings.model_deployment_name,
+            name=HEAD_COACH,
+            instructions=HEAD_COACH_INSTRUCTIONS,
+        )
+        
+        # create a Semantic Kernel agent for the Azure AI head-coach agen
+        agent_headcoach = AzureAIAgent(
+            client=client,
+            definition=headcoach_agent_definition,
+        )
+        
+        # create the assistant coach agent on the Azure AI agent service
+        assistantcoach_agent_definition = await client.agents.create_agent(
+            model=ai_agent_settings.model_deployment_name,
+            name=ASSISTANT_COACH,
+            instructions=ASSISTANT_COACH_INSTRUCTIONS,
+        )
 
-`````
-prompt="""
-    Determine if the copy has been approved.  If so, respond with a single word: yes
+        # create a Semantic Kernel agent for the assistant coach Azure AI agent
+        agent_assistantcoach = AzureAIAgent(
+            client=client,
+            definition=assistantcoach_agent_definition,
+        )
+```
 
-    History:
-    {{$history}}
-    """
-`````
-You can also specify which agent should determine that termination, which in our case would be ReviewingDirectorAgent. The agents to determine termination are also defined in the AgentGroupChat.
+This is where the fun part begins. We are initializing a group chat via the AgentGroupChat class and adding our agents to it. We need to define who comes next and when the group chat should end. To do so, we define a termination and selection strategy. Additionally, we define which agent is contributing to the termination strategy. In our case, only the Head Coach is in charge. Furthermore, we are defining a maximum of 4 iterations until the chat will be terminated.  
 
-### Conversation state
+```python
+        # add the agents to a group chat with a custom termination and selection strategy
+        chat = AgentGroupChat(
+            agents=[agent_headcoach, agent_assistantcoach],
+            termination_strategy=ApprovalTerminationStrategy(
+                agents=[agent_headcoach], 
+                maximum_iterations=4, 
+                automatic_reset=True
+            ),
+            selection_strategy=SelectionStrategy(agents=[agent_headcoach,agent_assistantcoach]),      
+        )
+```
 
-Whether you use AgentGroupChat for a single-turn or multi-turn conversation, the state is updated to completed once it meets the termination criteria. However, you may want to use the group chat instance again. To keep using the same chat instance, you'll need to reset the completion state to False. Without a state reset, the AgentGroupChat can't accept new interactions.
+In this section, we handle the execution of the group chat, including adding the task, invoking the chat, and performing cleanup operations. The AuthorRole.USER constant is used to explicitly identify the role of the message sender as the user to ensure clarity in the conversation flow. 
 
-When a conversation hits the maximum number of iterations allowed, the conversation will end but won't be marked as completed. In this case, you can extend the conversation without resetting the conversation state.
+```python
+        try:
+            # add the task as a message to the group chat
+            await chat.add_chat_message(message=TASK)
+            print(f"# {AuthorRole.USER}: '{TASK}'")
+            # invoke the chat
+            async for content in chat.invoke():
+                print(f"# {content.role} - {content.name or '*'}: '{content.content}'")
+        finally:
+            # cleanup and delete the agents
+            print("--chat ended--")
+            await chat.reset()
+            await client.agents.delete_agent(agent_headcoach.id)
+            await client.agents.delete_agent(agent_assistantcoach.id)
+```
 
-By understanding these components, you can better utilize the Semantic Kernel Agent Framework to build intelligent multi-agent systems.
+Almost at the end, we just need to add two classes for the termination and selection function that we have used in the group chat definition. As we defined in the Head Coach agent instructions, as soon as the final game plan is ready, it should add "final game plan" to its message. We are checking if the last message in the history contains this phrase, and we will terminate the group chat. 
+
+```python
+# class of termination strategy
+class ApprovalTerminationStrategy(TerminationStrategy):
+    """A strategy for determining when an agent should terminate."""
+
+    async def should_agent_terminate(self, agent, history):
+        """Check if the agent should terminate."""
+        return "final game plan" in history[-1].content.lower()
+```
+
+The second class adds a selection function that defines which agent should take the next turn in the chat. If the last message comes from the User or the Assistant Coach, it is the Head Coaches turn. 
+
+```python
+# class for selection strategy
+class SelectionStrategy(SequentialSelectionStrategy):
+    """A strategy for determining which agent should take the next turn in the chat."""
+    
+    # select the next agent that should take the next turn in the chat
+    async def select_agent(self, agents, history):
+        """"Check which agent should take the next turn in the chat."""
+
+        # the Head Coach should go after the User or the Assistant Coach
+        if (history[-1].name == ASSISTANT_COACH or history[-1].role == AuthorRole.USER):
+            agent_name = HEAD_COACH
+            return next((agent for agent in agents if agent.name == agent_name), None)
+        
+        # otherwise it is the Assistant Coach's turn
+        return next((agent for agent in agents if agent.name == ASSISTANT_COACH), None)
+```
+
+Lastly, we define the entry point for our app, and that it is executed as an asynchronous coroutine.
+
+```python
+if __name__ == "__main__":
+    asyncio.run(main())
+```
+
+### Running the mulit-agent app
+
+Ok, we should have something to play and test with. The finale code can be found on my GitHub repo [here](https://github.com/beyondelastic/basketball-ai-agent/tree/main). 
+
+Let's see if we can get a proper game plan from our coaching staff. 
+
+```text
+➜ python app.py
+# AuthorRole.USER: 'Could you please give me advice on how to change the game strategy for the next quarter? We are playing zone defense and the other team just scored 10 points in a row. We need to change our strategy to stop them. What should we do?'
+# AuthorRole.ASSISTANT - HeadCoach: 'head_coach > I'll need to consult with the Assistant Coach about defensive adjustments since that's not my area of expertise. Assistant Coach, what adjustments do you recommend for our zone defense to stop the opposing team who has just scored 10 points in a row? 
+
+In terms of our offensive strategy, we should focus on enhancing our ball movement and executing quick passes to exploit the gaps in their defense. Let's emphasize perimeter shooting and look for opportunities to drive to the basket, ensuring we spread the floor to create space. 
+
+Please provide your defensive advice, and I'll integrate that with our offensive strategy for the necessary adjustments.'
+# AuthorRole.ASSISTANT - AssistantCoach: 'assistant_coach > Consider switching to a man-to-man defense to apply more pressure on their shooters and disrupt their rhythm. This will help limit their easy scoring opportunities and force them into more contested shots. Ensure our players communicate effectively and switch on screens. Additionally, encourage tighter closeouts on shooters to contest their shots and deny open looks. If they continue to score, we could also implement a trap to force turnovers and get out in transition.'
+# AuthorRole.ASSISTANT - HeadCoach: 'head_coach > Thank you, Assistant Coach. Based on your advice, we'll switch to a man-to-man defense to apply pressure and limit their scoring opportunities. We'll focus on strong communication and switching on screens, as well as tighter closeouts on shooters.
+
+On the offensive side, we'll continue to enhance our ball movement, emphasizing quick passes and prioritizing perimeter shooting, alongside drive opportunities. This blend of a more aggressive defensive approach and a fluid offensive strategy should help us regain control of the game.
+
+Now, let's put this all together: we'll implement a man-to-man defense while enhancing our offensive ball movement and exploiting gaps in their defense. 
+
+final game plan'
+--chat ended--
+```
+
+Nice! Thanks Coaching staff! That indeed sounds like a plan to win the game in the end. 
+
+In Azure AI Foundry, we can see that the corresponding Azure AI Agents are getting created during the runtime and cleaned up afterward. 
+
+![Agents](/agents.jpg)
+
+## Summary
+
+This was a very simple example, but it shows how multiple agents can have different expertise and exchange ideas or knowledge about a specific topic via the Semantic Kernel group chat. Additionally, we can facilitate a structured conversation flow that allows the agents to efficiently collaborate and work on user provided tasks. Imagine that these agents would have access to different tools or knowledge sources to make them specialists for a specific task. We already looked at how to add tools (Code Interpreter Tool) to Azure AI Agents in my last blog [post](https://beyondelastic.github.io/posts/agent/). The same approach can be used in combination with Semantic Kernel to make our agents even smarter. 
+
+## Sources
+
+- [Semantic Kernel Microsoft documentation](https://learn.microsoft.com/en-us/semantic-kernel/overview/)
+- [Semantic Kernel GitHub repository](https://github.com/microsoft/semantic-kernel)
+- [Microsoft’s Agentic AI Frameworks: AutoGen and Semantic Kernel](https://devblogs.microsoft.com/semantic-kernel/microsofts-agentic-ai-frameworks-autogen-and-semantic-kernel/)
+- [Semantic Kernel Roadmap H1 2025: Accelerating Agents, Processes, and Integration](https://devblogs.microsoft.com/semantic-kernel/semantic-kernel-roadmap-h1-2025-accelerating-agents-processes-and-integration/)
+- [AutoGen and Semantic Kernel, Part 2](https://devblogs.microsoft.com/semantic-kernel/semantic-kernel-and-autogen-part-2/)
+- [Azure AI Agent standard setup bicep template](https://github.com/Azure-Samples/azureai-samples/tree/main/scenarios/Agents/setup/standard-agent) 
+- [Intro to Azure AI Agent Service](https://beyondelastic.github.io/posts/agent/)
+- [Microsoft Learn AI Agent Fundamentals](https://learn.microsoft.com/en-us/training/modules/ai-agent-fundamentals/)
+- [Semantic Kernel Agents are now Generally Available](https://devblogs.microsoft.com/semantic-kernel/semantic-kernel-agents-are-now-generally-available/)
