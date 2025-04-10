@@ -1,7 +1,7 @@
 +++
 date = '2025-04-10T09:15:23+01:00'
 draft = false
-title = 'Multi Agent'
+title = 'Semantic Kernel and Multi-Agent AI Apps'
 categories = ['AI']
 tags = ['Agents', 'Foundry', 'Azure', 'Semantic Kernel', 'Multi-Agent']
 +++
