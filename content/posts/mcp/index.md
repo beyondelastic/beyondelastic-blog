@@ -1,6 +1,6 @@
 +++
 date = '2025-04-11T08:37:54+02:00'
-draft = true
+draft = false
 title = 'Intro to the Model Context Protocol'
 categories = ['AI']
 tags = ['Agents', 'MCP', 'Azure', 'Copilot', 'VS Code', 'GitHub' ]
@@ -187,3 +187,4 @@ Besides MCP, there is another standard that was just recently announced by Googl
 - [VS Code GitHub Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot)  
 - [GitHub Copilot Agent Mode](https://code.visualstudio.com/docs/copilot/chat/chat-agent-mode)
 - [GitHub Copilot Azure extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azure-github-copilot)
+- [A2A protocol](https://learnopencv.com/googles-a2a-protocol-heres-what-you-need-to-know/)
