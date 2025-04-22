@@ -28,11 +28,11 @@ The MCP Servers can run local (stdio) or remote via HTTP+SSE(Server-Sent Events)
 
 There are already blog posts and repos available to deploy a remote MCP Server on various Azure Services:
 
-- [Azure App Service](https://techcommunity.microsoft.com/blog/appsonazureblog/host-remote-mcp-servers-in-azure-app-service/4405082)
-- [Azure Container Apps](https://techcommunity.microsoft.com/blog/appsonazureblog/host-remote-mcp-servers-in-azure-container-apps/4403550)
-- [Azure Functions](https://techcommunity.microsoft.com/blog/appsonazureblog/build-ai-agent-tools-using-remote-mcp-with-azure-functions/4401059)
+- [Host remote MCP Servers on Azure App Service](https://techcommunity.microsoft.com/blog/appsonazureblog/host-remote-mcp-servers-in-azure-app-service/4405082)
+- [Host remote MCP Servers on Azure Container Apps](https://techcommunity.microsoft.com/blog/appsonazureblog/host-remote-mcp-servers-in-azure-container-apps/4403550)
+- [Host remote MCP Servers on Azure Functions](https://techcommunity.microsoft.com/blog/appsonazureblog/build-ai-agent-tools-using-remote-mcp-with-azure-functions/4401059)
 
-When we talk remote MCP Servers, authentication becomes very important, and I can just recommend following Den Delimarsky's blog posts and his Entra ID integration ideas. But be aware, this is also evolving fast and might be irrelevant next week. 
+When we talk remote MCP Servers, authentication becomes very important, and I can recommend following Den Delimarsky's blog posts and his Entra ID integration ideas. But be aware, this is also evolving fast and might be irrelevant next week. 
 
 - [Using Microsoft Entra ID To Authenticate With MCP Servers Via Sessions](https://den.dev/blog/mcp-server-auth-entra-id-session/)
 
@@ -144,7 +144,7 @@ Now that we have everything in place, let's ask our Copilot Agent something abou
   <img src="sub-list-detail.png" class="grid-w50" />
 {{< /gallery >}}
 
-After approving the tool execution by clicking "Continue" it will run the first tool and ask to execute the second tool to list my Resource Groups. After approving the tool executio, it will show me a list with my Resource Groups.
+After approving the tool execution by clicking "Continue" it will run the first tool and ask to execute the second tool to list my Resource Groups. As soon as we approve the next step, it will show us a list with our Resource Groups.
 
 ![RG-list](/rglist.png)
 
@@ -161,7 +161,7 @@ Here is a list of popular MCP Server registries:
 - [https://smithery.ai/](https://smithery.ai/)
 - [https://www.pulsemcp.com/servers](https://www.pulsemcp.com/servers)
 
-Besides MCP, there is another standard that was just recently announced by Google. The [A2A protocol](https://learnopencv.com/googles-a2a-protocol-heres-what-you-need-to-know/), which caters more to the agent to agent collaboration across platforms. It is definitely worth to follow both projects and see how they evolve. There is no doubt, the future of agentic systems looks bright. 
+Besides MCP, there is another standard that was just recently announced by Google. The [A2A protocol](https://learnopencv.com/googles-a2a-protocol-heres-what-you-need-to-know/), which caters more to the agent to agent collaboration across platforms. It is definitely worth to follow both projects and see how they evolve. There is no doubt the future of agentic apps looks bright. 
 
 ## Resources
 
