@@ -1,7 +1,7 @@
 +++
 date = '2025-04-11T08:37:54+02:00'
 draft = false
-title = 'Intro to the Model Context Protocol'
+title = 'Intro to Model Context Protocol'
 categories = ['AI']
 tags = ['Agents', 'MCP', 'Azure', 'Copilot', 'VS Code', 'GitHub' ]
 +++
@@ -20,13 +20,13 @@ In this blog post, I want to explain and demonstrate MCP with a simple but usefu
 
 ### MCP Server
 
-What is an [MCP Server](https://modelcontextprotocol.io/docs/concepts/architecture)? MCP uses a client-server architecture. The MCP Server is where you build your connection to your APIs and resources. This is where the heavy lifting is done as you still have to write the integration. Nevertheless, the MCP Server then exposes your servers as MCP Tools via the standardized Model Context Protocol and makes them available to your AI apps. 
+What is an [MCP Server](https://modelcontextprotocol.io/docs/concepts/architecture)? MCP uses a client-server architecture. The MCP Server is where you build your connection to your APIs and resources. This is where the heavy lifting is done as you still have to write the integration. Nevertheless, the MCP Server then exposes your services as MCP Tools via the standardized Model Context Protocol and makes them available to your AI apps. 
 
 The MCP Servers can run local (stdio) or remote via HTTP+SSE(Server-Sent Events) transport layer. However, the remote implementation is still in early stages and is evolving fast. The recent specs already replacing HTTP+SSE with Streamable HTTP. I found a great blog post from Christian Posta explaining the change in more detail.
 
 - [Understanding MCP Recent Change Around HTTP+SSE](https://blog.christianposta.com/ai/understanding-mcp-recent-change-around-http-sse)
 
-There are already blog posts and repos available to deploy a remote MCP Server on various Azure Services:
+If you want to host a remote MCP Server on Azure, there are already multiple blog posts and repos available that you can follow:
 
 - [Host remote MCP Servers on Azure App Service](https://techcommunity.microsoft.com/blog/appsonazureblog/host-remote-mcp-servers-in-azure-app-service/4405082)
 - [Host remote MCP Servers on Azure Container Apps](https://techcommunity.microsoft.com/blog/appsonazureblog/host-remote-mcp-servers-in-azure-container-apps/4403550)
@@ -148,7 +148,7 @@ After approving the tool execution by clicking "Continue" it will run the first 
 
 ![RG-list](/rglist.png)
 
-Awesome, we can now use the available tools to execute azd command directly or query logs and more. Combine this with the [Azure extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azure-github-copilot) for GitHub Copilot and you have a powerful Azure toolset directly in VS Code GitHub Copilot.
+Awesome, we can now use the MCP Tools provided by our Azure MCP Server to execute [azd](https://learn.microsoft.com/en-us/azure/developer/azure-developer-cli/) commands directly or query logs and more. Combine this with the [Azure extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azure-github-copilot) for GitHub Copilot and you have a powerful Azure toolset directly in VS Code GitHub Copilot.
 
 ## Summary
 
@@ -160,6 +160,8 @@ Here is a list of popular MCP Server registries:
 - [https://glama.ai/mcp/servers](https://glama.ai/mcp/servers) ​
 - [https://smithery.ai/](https://smithery.ai/)
 - [https://www.pulsemcp.com/servers](https://www.pulsemcp.com/servers)
+
+If you wonder, is it is possible to use [Azure AI Agent Service](https://beyondelastic.github.io/posts/agent/) with MCP, it is. There is a great blog post available [here](https://devblogs.microsoft.com/foundry/integrating-azure-ai-agents-mcp/). It describes how to use Azure AI Agents as MCP Tools. Which might sounds strange in the first moment as it works the other way around. In this scenario, the MCP Server uses the agent or multiple agents as tools instead of the agent querying the MCP Server for exposed tools. Which makes a lot of sense if you think about the many ootb tools and Azure integrations that are available with the Azure AI Agent Service.
 
 Besides MCP, there is another standard that was just recently announced by Google. The [A2A protocol](https://learnopencv.com/googles-a2a-protocol-heres-what-you-need-to-know/), which caters more to the agent to agent collaboration across platforms. It is definitely worth to follow both projects and see how they evolve. There is no doubt the future of agentic apps looks bright. 
 
@@ -186,5 +188,8 @@ Besides MCP, there is another standard that was just recently announced by Googl
 - [GitHub account](https://github.com/)
 - [VS Code GitHub Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot)  
 - [GitHub Copilot Agent Mode](https://code.visualstudio.com/docs/copilot/chat/chat-agent-mode)
+- [Azure Developer CLI](https://learn.microsoft.com/en-us/azure/developer/azure-developer-cli/)
 - [GitHub Copilot Azure extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azure-github-copilot)
+- [Azure AI Agent Service](https://beyondelastic.github.io/posts/agent/)
+- [MCP with Azure AI Agent Service](https://devblogs.microsoft.com/foundry/integrating-azure-ai-agents-mcp/)
 - [A2A protocol](https://learnopencv.com/googles-a2a-protocol-heres-what-you-need-to-know/)
