@@ -1,7 +1,9 @@
 +++
 date = '2025-07-03T11:42:12+02:00'
-draft = true
+draft = false
 title = 'Azure AI Foundry News & Changes'
+categories = ['AI']
+tags = ['Agents', 'Foundry', 'Azure', 'VS Code', 'MS Build']
 +++
 
 ## Intro
