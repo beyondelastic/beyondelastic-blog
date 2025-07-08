@@ -8,11 +8,11 @@ tags = ['Agents', 'Foundry', 'Azure', 'VS Code', 'MS Build']
 
 ## Intro
 
-In this short blog post, I want to share with you some of the news from [Microsoft Build 2025](https://news.microsoft.com/build-2025/) around Azure AI Foundry. For example, the Azure AI Foundry Agent Service aka Azure AI Agent Service is now GA. The blog post for the GA announcement can be found [here](https://techcommunity.microsoft.com/blog/azure-ai-services-blog/announcing-general-availability-of-azure-ai-foundry-agent-service/4414352). Additionally, there were plenty of new public preview features for Azure AI Foundry announced, such as **Connected Agents**, **Model Router**, **Tracing** and many more. A summary of the Azure AI Foundry announcements can be found [here](https://azure.microsoft.com/en-us/blog/azure-ai-foundry-your-ai-app-and-agent-factory/).
+In this short blog post, I want to share with you some of the news and changes from [Microsoft Build 2025](https://news.microsoft.com/build-2025/) around Azure AI Foundry. For example, the Azure AI Foundry Agent Service aka Azure AI Agent Service is now GA. The blog post for the GA announcement can be found [here](https://techcommunity.microsoft.com/blog/azure-ai-services-blog/announcing-general-availability-of-azure-ai-foundry-agent-service/4414352). Additionally, there were plenty of new public preview features for Azure AI Foundry announced, such as **Connected Agents**, **Model Router**, **Tracing** and many more. A summary of the Azure AI Foundry announcements can be found [here](https://azure.microsoft.com/en-us/blog/azure-ai-foundry-your-ai-app-and-agent-factory/). I am not going to cover every feature in this blog post, instead we are going to focus on the introduced changes and tease some of the VS Code related capabilities. 
 
-### New Resources & Changes
+### New resources & changes
 
-Besides all the new announcements, there were some changes around the Azure AI Foundry resources and APIs. The former construct was built with **Hub**-based projects hosted in an Azure AI Foundry Hub.
+As mentioned above, besides all the new announcements, there were some changes around the Azure AI Foundry resources and APIs. The former construct was built with **Hub**-based projects hosted in an Azure AI Foundry Hub.
 
 ![Hub](/hub.png)
 
@@ -26,7 +26,7 @@ Compared to the five Azure resources required for the old construct (Key Vault, 
 
 There is a great blog article covering the changes, [here](https://techcommunity.microsoft.com/blog/aiplatformblog/build-recap-new-azure-ai-foundry-resource-developer-apis-and-tools/4427241). In terms of capabilities of the different project types, there is a comparison matrix and additional information to be found, [here](https://learn.microsoft.com/en-us/azure/ai-foundry/what-is-azure-ai-foundry#which-type-of-project-do-i-need). 
 
-### API & SDK Changes
+### API & SDK changes
 
 From an API and SDK perspective, there were also a couple of changes introduced to unify the development of the core building blocks of your AI application. Here are a few examples:
 
@@ -67,7 +67,7 @@ If you were following my previous blog posts about Azure AI Agent Service and Az
 
 ### Build and deploy Azure AI Foundry Agents via VS Code
 
-If you haven't done it already, you should take a look at the [Azure AI Foundry VS Code extension (currently in Preview)](https://marketplace.visualstudio.com/items?itemName=TeamsDevApp.vscode-ai-foundry). It allows you to build, test, and deploy Azure AI Foundry Agents from within VS Code. Agents can be defined via yaml files as you can see in the following screenshot:
+If you haven't done it already, you should take a look at the [Azure AI Foundry VS Code extension](https://marketplace.visualstudio.com/items?itemName=TeamsDevApp.vscode-ai-foundry) (currently in Preview). It allows you to build, test, and deploy Azure AI Foundry Agents from within VS Code. Agents and tools can be defined via yaml files as you can see in the following screenshot:
 
 ![VS Code - Foundry Agent yaml](/vscode-foundry-agent-yaml.jpg)
 
@@ -77,7 +77,23 @@ Additionally, they can be defined and deployed via a graphical editor in VS Code
 
 Check out the following [blog post](https://techcommunity.microsoft.com/blog/azuredevcommunityblog/create-enterprise-ai-agents-with-azure-ai-foundry-vscode-extension/4400803) and the documentation link [here](https://learn.microsoft.com/en-us/azure/ai-foundry/how-to/develop/vs-code-agents) if you are keen to learn more about working with Azure AI Foundry from within VS Code. 
 
-### Infra Templates
+### Open in VS Code workflow
+
+Another nice little new feature is the option to open a [VS Code for the Web](https://code.visualstudio.com/docs/setup/vscode-web) session directly from the Azure AI Foundry Agent playground. 
+
+![Foundry playground](/playground.png)
+
+From the sample code page, you can press **Open in VS Code**.
+
+![Open in VS Code](/open-in-vscode.png)
+
+This will open a **VS Code for the Web** session.
+
+![VS Code for the Web](/vscode-web.png)
+
+If you want to learn more about this feature, have a look at the following [blog post](https://devblogs.microsoft.com/foundry/open-in-vscode/). 
+
+### Infrastructure templates
 
 In terms of infrastructure deployment, you can find bicep templates creating the new Azure AI Foundry resources [here](https://github.com/azure-ai-foundry/foundry-samples/blob/main/samples/microsoft/infrastructure-setup/README.md). 
 
@@ -94,7 +110,9 @@ As I spend most of my time in VS Code, I love the integration to Azure AI Foundr
 - [Build recap: new Azure AI Foundry resource, Developer APIs and Tools](https://techcommunity.microsoft.com/blog/aiplatformblog/build-recap-new-azure-ai-foundry-resource-developer-apis-and-tools/4427241)
 - [Documentation & comparison matrix Azure AI Foundry projects](https://learn.microsoft.com/en-us/azure/ai-foundry/what-is-azure-ai-foundry#which-type-of-project-do-i-need)
 - [Coding the Future of AI with Azure AI Foundry API and SDK](https://devblogs.microsoft.com/foundry/coding-the-future-of-ai-with-azure-ai-foundry-api-and-sdk/)
-- [Azure AI Foundry bicep templates](https://github.com/azure-ai-foundry/foundry-samples/blob/main/samples/microsoft/infrastructure-setup/README.md)
 - [Create Enterprise AI Agents with Azure AI Foundry VSCode Extension](https://techcommunity.microsoft.com/blog/azuredevcommunityblog/create-enterprise-ai-agents-with-azure-ai-foundry-vscode-extension/4400803)
 - [Documentation - Work with Azure AI Foundry Agent Service in Visual Studio Code (Preview)](https://learn.microsoft.com/en-us/azure/ai-foundry/how-to/develop/vs-code-agents)
+- [Azure AI Foundry bicep templates](https://github.com/azure-ai-foundry/foundry-samples/blob/main/samples/microsoft/infrastructure-setup/README.md)
+- [Documentation - VS Code for the Web](https://code.visualstudio.com/docs/setup/vscode-web)
+- [Code quicker with Azure AI Foundry playgrounds and Visual Studio Code](https://devblogs.microsoft.com/foundry/open-in-vscode/)
 
