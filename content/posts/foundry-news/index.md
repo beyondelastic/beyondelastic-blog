@@ -39,14 +39,20 @@ project_client = AIProjectClient(
 )
 ```
 
+The AI Foundry project endpoint url can be found under the **Overview** tab of your project, see following screenshot:
+
+![Project endpoint](/endpoint.png)
+
+
 - Creating a thread changed from *project_client.agents.create_thread* to **project_client.agents.threads.create**, see following example:
 ```python
-# create a thread with message
+# create a thread
 thread = project_client.agents.threads.create()
 ```
 
 - Creating a message changed from *project_client.agents.create_message* to **project_client.agents.messages.create**
 ```python
+# create a message
 message = project_client.agents.messages.create(
     thread_id=thread.id,
     role="user",
