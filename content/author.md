@@ -15,6 +15,7 @@ Please be aware that all posts and opinions are my own, see [Disclaimer](https:/
 {{< gallery >}}
   <img src="/images/ms-badge1.png" class="grid-w33" />
   <img src="/images/ms-badge2.png" class="grid-w33" />
+  <img src="/images/ms-badge3.png" class="grid-w33" />
 {{< /gallery >}}
 {{< gallery >}}
   <img src="/images/cks.png" class="grid-w33" />
