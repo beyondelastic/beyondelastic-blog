@@ -138,9 +138,9 @@ forgejoDefaultServer = "https://v8.next.forgejo.org"
   # domain = "llama.yoursite.com"
 
 [umamiAnalytics]
-  # websiteid = "ABC12345"
-  # domain = "llama.yoursite.com"
-  # dataDomains = "yoursite.com,yoursite2.com"
+  websiteid = "244d1905-255a-422b-893b-a2246ab86f18"
+  domain = "cloud.umami.is"
+  dataDomains = "beyondelastic.github.io"
   # scriptName = ""
   # enableTrackEvent = true
 
