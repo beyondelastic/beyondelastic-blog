@@ -2,6 +2,7 @@
 date = '2025-07-03T11:42:12+02:00'
 draft = false
 title = 'Azure AI Foundry News & Changes'
+description = 'Highlights from Microsoft Build 2025 for Azure AI Foundry, including Agent Service GA, Connected Agents, Model Router, Tracing and new VS Code capabilities.'
 categories = ['AI']
 tags = ['Agents', 'Foundry', 'Azure', 'VS Code', 'MS Build']
 +++

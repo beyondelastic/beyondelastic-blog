@@ -1,7 +1,8 @@
 +++
-date = '2025-10-07T09:52:19+02:00'
+date = '2026-07-14T09:52:19+02:00'
 draft = false
 title = 'Intro to Microsoft Agent Framework'
+description = 'A first look at the generally available Microsoft Agent Framework, combining the best of Semantic Kernel and AutoGen for enterprise-grade agent orchestration.'
 categories = ['AI']
 tags = ['Agents', 'Foundry', 'Azure', 'Semantic Kernel', 'Multi-Agent', 'VS Code', 'Agent Framework']
 +++

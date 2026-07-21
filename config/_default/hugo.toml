@@ -12,6 +12,9 @@ defaultContentLanguage = "en"
 enableRobotsTXT = true
 summaryLength = 0
 
+# Derive lastmod from git commits so sitemap.xml carries real freshness signals
+enableGitInfo = true
+
 buildDrafts = false
 buildFuture = false
 

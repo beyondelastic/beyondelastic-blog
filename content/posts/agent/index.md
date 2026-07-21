@@ -2,6 +2,7 @@
 date = '2025-04-02T13:15:46+02:00'
 draft = false
 title = 'Intro to Azure AI Agent Service'
+description = 'A hands-on intro to the Azure AI Agent Service and how it helps you build and run autonomous, multi-step AI agents on Azure.'
 categories = ['AI']
 tags = ['Agents', 'Foundry', 'Azure']
 +++

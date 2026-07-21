@@ -2,6 +2,7 @@
 date = '2025-04-23T09:42:05+02:00'
 draft = false
 title = 'Semantic Kernel Function Calling & Plugins'
+description = 'A closer look at Semantic Kernel Function Calling and Plugins, and how they let AI agents tap external APIs and data sources for richer context.'
 categories = ['AI']
 tags = ['Agents', 'Azure', 'Semantic Kernel', 'Function Calling', 'Plugins']
 +++

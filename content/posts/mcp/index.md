@@ -2,6 +2,7 @@
 date = '2025-04-11T08:37:54+02:00'
 draft = false
 title = 'Intro to Model Context Protocol'
+description = 'What the Model Context Protocol (MCP) is, why it is the "USB adapter" for AI tools, and how the open standard connects AI apps to data and tools.'
 categories = ['AI']
 tags = ['Agents', 'MCP', 'Azure', 'Copilot', 'VS Code', 'GitHub' ]
 +++

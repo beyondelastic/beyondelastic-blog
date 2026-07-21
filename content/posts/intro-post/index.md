@@ -2,6 +2,7 @@
 date = '2025-01-30T16:12:50+01:00'
 draft = false
 title = 'Intro Post'
+description = 'Welcome to BeyondElastic, a personal blog on modern app development, Microsoft Azure, cloud solutions and AI-driven development by Alexander Ullah.'
 tags = ['Intro']
 +++
 

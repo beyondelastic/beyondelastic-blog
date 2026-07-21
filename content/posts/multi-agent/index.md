@@ -2,6 +2,7 @@
 date = '2025-04-10T09:15:23+01:00'
 draft = false
 title = 'Intro to Semantic Kernel and Multi-Agent AI Apps'
+description = 'How to use Semantic Kernel to build, orchestrate and deploy AI agents and multi-agent apps, with its plugin-based architecture explained.'
 categories = ['AI']
 tags = ['Agents', 'Foundry', 'Azure', 'Semantic Kernel', 'Multi-Agent']
 +++
