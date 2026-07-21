@@ -7,7 +7,7 @@ categories = ['AI']
 tags = ['Agents', 'Azure', 'Semantic Kernel', 'Function Calling', 'Plugins']
 +++
 
-# Intro
+## Intro
 
 These days, LLMs are not good enough anymore. We build agentic applications that perform complex tasks with up-to-date data and external systems. This is why we need multiple specialized AI Agents that can access all sorts of APIs and data sources to provide additional context to our LLMs. In this blog post, I want to take a closer look at Semantic Kernel Function Calling & Plugins and how it can help in such scenarios. 
 

@@ -7,7 +7,7 @@ categories = ['AI']
 tags = ['Agents', 'Foundry', 'Azure', 'Semantic Kernel', 'Multi-Agent', 'VS Code', 'Agent Framework']
 +++
 
-# Intro
+## Intro
 
 The Microsoft Agent Framework has been around for a while now and, with the `1.0.0` release, it is officially generally available. What is it you say? You might have heard about the open-source frameworks Semantic Kernel and AutoGen for building agentic apps? Both have their strengths and their weaknesses and are lacking capabilities of the other. The Microsoft Agent Framework combines the best of both worlds with enterprise grade features, tool & protocol interoperability and deterministic & dynamic orchestration patterns. Got your attention? In this blog post, I will give the framework a try and highlight important capabilities and sources.
 

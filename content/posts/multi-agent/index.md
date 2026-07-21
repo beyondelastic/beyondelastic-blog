@@ -7,7 +7,7 @@ categories = ['AI']
 tags = ['Agents', 'Foundry', 'Azure', 'Semantic Kernel', 'Multi-Agent']
 +++
 
-# Intro
+## Intro
 
 In my last post, I have covered Azure [AI Agent Service](https://beyondelastic.github.io/posts/agent/) and how it can be used to easily build and run AI agents on Azure. This time, we are going to look at Semantic Kernel as a framework to build, orchestrate and deploy AI agents or multi-agent applications. Semantic Kernel is an open-source development kit by Microsoft that offers a unified framework with a plugin-based architecture for easier integration and reduced complexity. It serves as efficient middleware, enabling fast development of enterprise-grade solutions by combining prompts with existing APIs.
 

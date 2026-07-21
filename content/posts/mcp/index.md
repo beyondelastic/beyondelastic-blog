@@ -7,7 +7,7 @@ categories = ['AI']
 tags = ['Agents', 'MCP', 'Azure', 'Copilot', 'VS Code', 'GitHub' ]
 +++
 
-# Intro
+## Intro
 
 The Model Context Protocol (MCP) is trending! What is it? Let's check it out. MCP is an open-source project launched in November 2024. It defines an open standard for AI applications to connect to their tools and data. I heard someone referring to it as the **USB adapter** for AI systems because it provides a very much needed standardization. Making your AI models smarter typically requires custom code, which can be challenging when it comes to scaling and maintaining the integrations. Most likely, your teams will end up writing the same integration multiple times for different AI use-cases. MCP allows for a **"write once, work everywhere"** approach, which will save development efforts. 
 

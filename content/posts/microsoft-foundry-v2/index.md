@@ -7,7 +7,7 @@ categories = ['AI']
 tags = ['Agents', 'Foundry', 'Azure', 'MCP']
 +++
 
-# Intro
+## Intro
 
 The platform formerly known as **Azure AI Foundry** has quietly turned into something quite different
 over the course of this year: a new name, a new portal, and a genuinely new engine under the hood.

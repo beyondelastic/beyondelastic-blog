@@ -7,7 +7,7 @@ categories = ['AI']
 tags = ['Agents', 'Foundry', 'Azure']
 +++
 
-# Intro
+## Intro
 
 AI Agents are in talks, and we are going to take a look at the **Azure AI Agent Service**. Why should you care? Because AI Agents are the next evolution of AI-driven applications, and they will help you to automate and execute more complicated multistep tasks completely autonomously or with a human in a loop. Here are two blog posts that are worth reading to set the scene:
 
