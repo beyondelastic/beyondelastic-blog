@@ -4,7 +4,7 @@
 
 theme = "blowfish" # UNCOMMENT THIS LINE
 baseURL = "https://beyondelastic.github.io"
-laguageCode = "en"
+languageCode = "en"
 defaultContentLanguage = "en"
 
 # pluralizeListTitles = "true" # hugo function useful for non-english languages, find out more in  https://gohugo.io/getting-started/configuration/#pluralizelisttitles
@@ -22,6 +22,10 @@ enableEmoji = true
 
 # Disabled in favour of cookieless Umami analytics (see params.toml)
 # googleAnalytics = "G-YWTBZP3Y84"
+
+# Minify HTML/CSS/JS output on every build for faster page loads
+[minify]
+  minifyOutput = true
 
 [pagination]
   pagerSize = 100
