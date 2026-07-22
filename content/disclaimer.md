@@ -4,6 +4,7 @@ draft = false
 title = 'Disclaimer'
 showZenMode = false
 showTableOfContents = false
+disableSharing = true
 +++
 
 ## Disclaimer
