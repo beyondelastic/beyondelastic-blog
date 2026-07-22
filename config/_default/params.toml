@@ -25,7 +25,7 @@ defaultBackgroundImage = "image.jpg" # used as default for background images
 # defaultFeaturedImage = "image.jpg" # used as default for featured images in all articles
 
 # highlightCurrentMenuArea = true
-# smartTOC = true
+smartTOC = true
 # smartTOCHideUnfocusedChildren = true
 
 giteaDefaultServer = "https://git.fsfe.org"
