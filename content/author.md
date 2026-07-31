@@ -60,7 +60,7 @@ spec:
     - Solution selling & public speaking
   currentRole:
     company: Microsoft
-    team: Digital & Application Innovation
+    team: Specialist Team Unit - Cloud & AI
     period: 2025-01 → present
     highlights:
       - GenAI & agentic app strategies for strategic German customers
