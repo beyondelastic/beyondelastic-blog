@@ -1,7 +1,7 @@
 +++
 date = '2026-07-17T09:00:00+02:00'
 draft = false
-title = 'Microsoft Foundry V2'
+title = 'Microsoft Foundry V2: New Portal, Responses API, and Prompt Agents'
 description = 'A hands-on tour of the V2 wave of Microsoft Foundry (formerly Azure AI Foundry): the new portal, Responses API, conversations, prompt agents and tools.'
 categories = ['AI']
 tags = ['Agents', 'Foundry', 'Azure', 'MCP']
