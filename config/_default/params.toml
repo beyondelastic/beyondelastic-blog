@@ -140,7 +140,7 @@ forgejoDefaultServer = "https://v8.next.forgejo.org"
 [umamiAnalytics]
   websiteid = "244d1905-255a-422b-893b-a2246ab86f18"
   domain = "cloud.umami.is"
-  dataDomains = "beyondelastic.github.io"
+  dataDomains = "beyond-elastic.com"
   # scriptName = ""
   # enableTrackEvent = true
 

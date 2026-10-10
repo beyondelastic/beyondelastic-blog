@@ -3,7 +3,7 @@
 # https://blowfish.page/docs/getting-started/
 
 theme = "blowfish" # UNCOMMENT THIS LINE
-baseURL = "https://beyondelastic.github.io"
+baseURL = "https://beyond-elastic.com/"
 languageCode = "en"
 defaultContentLanguage = "en"
 
