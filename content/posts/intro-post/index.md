@@ -8,7 +8,7 @@ tags = ['Intro']
 
 Hi everyone,
 
-Welcome to [my](https://beyondelastic.github.io/author/) blog! 🎉 Here, I dive into the exciting world of modern application development, platform challenges, and cloud solutions. As a Technical Specialist, I'm thrilled to explore the latest trends and technologies that are shaping our industry.
+Welcome to [my](/author/) blog! 🎉 Here, I dive into the exciting world of modern application development, platform challenges, and cloud solutions. As a Technical Specialist, I'm thrilled to explore the latest trends and technologies that are shaping our industry.
 
 In this space, I'll share insights on how we can tackle today's IT challenges using the powerful capabilities of Microsoft Azure. From cloud computing to AI-driven solutions, DevOps, and everything in between, join me on this journey to discover innovative solutions that drive efficiency and success.
 

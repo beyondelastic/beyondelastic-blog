@@ -66,11 +66,11 @@ FOUNDRY_MODEL="<your-model-deployment-name>"
 
 ## Coding
 
-For this demo, I will build a small healthcare triage app with the new framework and the **Magentic** orchestration pattern. This is the same scenario I use in my workshop: instead of one all-knowing agent, a **manager** delegates to specialist doctors (a cardiologist, a neurologist and a general practitioner) and pulls their input together into a single assessment. If you have seen my earlier [Semantic Kernel multi-agent post](https://beyondelastic.github.io/posts/multi-agent/), the idea will feel familiar.
+For this demo, I will build a small healthcare triage app with the new framework and the **Magentic** orchestration pattern. This is the same scenario I use in my workshop: instead of one all-knowing agent, a **manager** delegates to specialist doctors (a cardiologist, a neurologist and a general practitioner) and pulls their input together into a single assessment. If you have seen my earlier [Semantic Kernel multi-agent post](/posts/multi-agent/), the idea will feel familiar.
 
 I packaged a full, hands-on version of everything below, including setup, code and lessons, into a workshop you can clone and run yourself:
 
-- [Microsoft Agent Framework Workshop](https://beyondelastic.github.io/maf-workshop/)
+- [Microsoft Agent Framework Workshop](/maf-workshop/)
 
 Let me walk through the parts that stood out to me when moving over from Semantic Kernel.
 
@@ -379,13 +379,13 @@ Running scripts in a terminal is fine, but the framework also ships **DevUI**, a
 
 ![DevUI chat interface for the healthcare triage agents](/devui.png)
 
-On top of that, the **[Foundry Toolkit](https://learn.microsoft.com/azure/foundry/how-to/develop/get-started-projects-vs-code)** extension for VS Code (formerly the AI Toolkit) adds an OpenTelemetry trace viewer, so once you call `configure_otel_providers()` you can watch every LLM call, tool invocation and token count for a run right inside the editor. I cover both DevUI and tracing in the [workshop](https://beyondelastic.github.io/maf-workshop/).
+On top of that, the **[Foundry Toolkit](https://learn.microsoft.com/azure/foundry/how-to/develop/get-started-projects-vs-code)** extension for VS Code (formerly the AI Toolkit) adds an OpenTelemetry trace viewer, so once you call `configure_otel_providers()` you can watch every LLM call, tool invocation and token count for a run right inside the editor. I cover both DevUI and tracing in the [workshop](/maf-workshop/).
 
 ## Wrap-up
 
 The Microsoft Agent Framework really does bring the best of both worlds together: AutoGen's orchestration muscle and Semantic Kernel's enterprise features, now stable and shipping as `1.0.0`. For me the highlights are the leaner developer experience without the Kernel, being able to swap model providers in one line, and Workflows plus Magentic orchestration for coordinating multiple agents, with DevUI and the Foundry Toolkit making it genuinely pleasant to build and debug.
 
-If you want to get hands-on, clone my [Microsoft Agent Framework Workshop](https://beyondelastic.github.io/maf-workshop/) and work through it lesson by lesson. And if you are coming from Semantic Kernel or AutoGen, the official [migration guides](https://learn.microsoft.com/agent-framework/migration-guide/from-semantic-kernel/) should make the move a good bit easier, do not expect it to be completely painless, but they give you a solid starting point. This space is still moving fast, so treat this as a snapshot, but the foundation feels solid now. Happy building!
+If you want to get hands-on, clone my [Microsoft Agent Framework Workshop](/maf-workshop/) and work through it lesson by lesson. And if you are coming from Semantic Kernel or AutoGen, the official [migration guides](https://learn.microsoft.com/agent-framework/migration-guide/from-semantic-kernel/) should make the move a good bit easier, do not expect it to be completely painless, but they give you a solid starting point. This space is still moving fast, so treat this as a snapshot, but the foundation feels solid now. Happy building!
 
 ## Sources
 
@@ -402,8 +402,8 @@ Everything I referenced while writing this post:
 - [Agent Framework GitHub repo](https://github.com/microsoft/agent-framework)
 - [Quickstart guide](https://learn.microsoft.com/agent-framework/get-started/)
 - [Foundry Toolkit for VS Code](https://learn.microsoft.com/azure/foundry/how-to/develop/get-started-projects-vs-code)
-- [My Microsoft Agent Framework Workshop](https://beyondelastic.github.io/maf-workshop/)
-- [My Semantic Kernel multi-agent post](https://beyondelastic.github.io/posts/multi-agent/)
+- [My Microsoft Agent Framework Workshop](/maf-workshop/)
+- [My Semantic Kernel multi-agent post](/posts/multi-agent/)
 
 And a few videos worth watching:
 

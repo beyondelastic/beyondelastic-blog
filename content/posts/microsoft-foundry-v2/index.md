@@ -15,7 +15,7 @@ Welcome to **Microsoft Foundry** and the **V2** wave of changes. None of this la
 been rolling out in stages since the beginning of the year, for example the
 [Foundry Agent Service went GA back in March](https://devblogs.microsoft.com/foundry/foundry-agent-service-ga/).
 By now enough of it has settled that it is worth stepping back and looking at the whole picture.
-If you have read my earlier post [Azure AI Foundry News & Changes](https://beyondelastic.github.io/posts/foundry-news/),
+If you have read my earlier post [Azure AI Foundry News & Changes](/posts/foundry-news/),
 this is the sequel: what was in preview back then has matured, the rebrand is official, and the way we
 build agents has changed quite a bit.
 
@@ -63,7 +63,7 @@ and keep your endpoint, keys, and existing state.
 
 ## What changed since my last Foundry post
 
-In my [previous Foundry post](https://beyondelastic.github.io/posts/foundry-news/) I was still using
+In my [previous Foundry post](/posts/foundry-news/) I was still using
 **threads**, **messages**, and **runs**, and there was no Responses API in sight. Here is the exact
 code I wrote back then to talk to an agent:
 
@@ -226,7 +226,7 @@ Agents themselves got a redesign too. Instead of `create_agent()`, you now creat
 agent with a structured definition. The most common type is a **prompt agent**: a declarative agent
 defined by a model plus instructions (and optionally tools). Here is the pattern straight from the
 [migration guide](https://learn.microsoft.com/azure/foundry/agents/how-to/migrate?tabs=python) and my
-[Foundry workshop](https://beyondelastic.github.io/foundry-workshop/03-build-an-agent/):
+[Foundry workshop](/foundry-workshop/03-build-an-agent/):
 
 ```python
 from azure.ai.projects.models import CodeInterpreterTool, PromptAgentDefinition
@@ -311,7 +311,7 @@ Two things jump out for me: **MCP is now GA** (it was preview in my last post), 
 1,400 tools via public and private catalogs.
 
 Adding a tool to a prompt agent is just a line in the definition. Here is the web search example from
-my workshop's [tool calls lab](https://beyondelastic.github.io/foundry-workshop/06-tool-calls/), and
+my workshop's [tool calls lab](/foundry-workshop/06-tool-calls/), and
 the official [web search tool docs](https://learn.microsoft.com/azure/foundry/agents/how-to/tools/web-search?tabs=prompt-agents&pivots=python)
 have the full reference:
 
@@ -420,7 +420,7 @@ On the observability side, Foundry gives you:
   one-off test run.
 - **Tracing** built on **OpenTelemetry**, which you can wire up in a few lines and then inspect the
   traces right inside Foundry. I walk through exactly this in my workshop's
-  [observability lab](https://beyondelastic.github.io/foundry-workshop/05-observability-and-tracing/).
+  [observability lab](/foundry-workshop/05-observability-and-tracing/).
 - **Enterprise controls**: full authentication for MCP and A2A, AI gateway integration, and Azure
   Policy support.
 
@@ -440,7 +440,7 @@ skipped but that are well worth a look:
   so colleagues discover and chat with it without leaving their usual tools. What gets published is the
   agent's stable endpoint, so you can roll out new versions behind the scenes.
 - **Multi-agent orchestration.** For coordinating several specialized agents, the go-to engine is
-  [Microsoft Agent Framework](https://beyondelastic.github.io/posts/agent-framework/), which I wrote a
+  [Microsoft Agent Framework](/posts/agent-framework/), which I wrote a
   whole post on. The Foundry portal also has a visual
   [Workflows](https://learn.microsoft.com/azure/foundry/agents/concepts/workflow) designer, but it is
   being retired on December 1, 2026, so for anything new I would start with Agent Framework.
@@ -472,7 +472,7 @@ migration to conversations and responses. The
 [migration guide](https://learn.microsoft.com/azure/foundry/agents/how-to/migrate?tabs=python) and the
 [migration tool](https://aka.ms/agent/migrate/tool) make it painless. And if you want a hands-on,
 runnable path through all of this in Python, I put together a
-[Microsoft Foundry workshop](https://beyondelastic.github.io/foundry-workshop/)
+[Microsoft Foundry workshop](/foundry-workshop/)
 ([GitHub repo](https://github.com/beyondelastic/foundry-workshop)) that covers model calls, prompt
 agents, tools, RAG, evaluation, observability, and more.
 
@@ -493,5 +493,5 @@ building.
 - [Find features in the Foundry portal](https://learn.microsoft.com/azure/foundry/how-to/navigate-from-classic)
 - [Monitor agents dashboard](https://learn.microsoft.com/azure/foundry/observability/how-to/how-to-monitor-agents-dashboard)
 - [Microsoft Foundry for VS Code](https://learn.microsoft.com/azure/foundry/how-to/develop/get-started-projects-vs-code)
-- [My previous post: Azure AI Foundry News & Changes](https://beyondelastic.github.io/posts/foundry-news/)
-- [Microsoft Foundry workshop](https://beyondelastic.github.io/foundry-workshop/) and [GitHub repo](https://github.com/beyondelastic/foundry-workshop)
+- [My previous post: Azure AI Foundry News & Changes](/posts/foundry-news/)
+- [Microsoft Foundry workshop](/foundry-workshop/) and [GitHub repo](https://github.com/beyondelastic/foundry-workshop)

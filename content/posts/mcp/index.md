@@ -162,7 +162,7 @@ Here is a list of popular MCP Server registries:
 - [https://smithery.ai/](https://smithery.ai/)
 - [https://www.pulsemcp.com/servers](https://www.pulsemcp.com/servers)
 
-If you wonder, is it is possible to use [Azure AI Agent Service](https://beyondelastic.github.io/posts/agent/) with MCP, it is. There is a great blog post available [here](https://devblogs.microsoft.com/foundry/integrating-azure-ai-agents-mcp/). It describes how to use Azure AI Agents as MCP Tools. Which might sounds strange in the first moment as it works the other way around. In this scenario, the MCP Server uses the agent or multiple agents as tools instead of the agent querying the MCP Server for exposed tools. Which makes a lot of sense if you think about the many ootb tools and Azure integrations that are available with the Azure AI Agent Service.
+If you wonder, is it is possible to use [Azure AI Agent Service](/posts/agent/) with MCP, it is. There is a great blog post available [here](https://devblogs.microsoft.com/foundry/integrating-azure-ai-agents-mcp/). It describes how to use Azure AI Agents as MCP Tools. Which might sounds strange in the first moment as it works the other way around. In this scenario, the MCP Server uses the agent or multiple agents as tools instead of the agent querying the MCP Server for exposed tools. Which makes a lot of sense if you think about the many ootb tools and Azure integrations that are available with the Azure AI Agent Service.
 
 Besides MCP, there is another standard that was just recently announced by Google. The [A2A protocol](https://learnopencv.com/googles-a2a-protocol-heres-what-you-need-to-know/), which caters more to the agent to agent collaboration across platforms. It is definitely worth to follow both projects and see how they evolve. There is no doubt the future of agentic apps looks bright. 
 
@@ -191,6 +191,6 @@ Besides MCP, there is another standard that was just recently announced by Googl
 - [GitHub Copilot Agent Mode](https://code.visualstudio.com/docs/copilot/chat/chat-agent-mode)
 - [Azure Developer CLI](https://learn.microsoft.com/en-us/azure/developer/azure-developer-cli/)
 - [GitHub Copilot Azure extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azure-github-copilot)
-- [Azure AI Agent Service](https://beyondelastic.github.io/posts/agent/)
+- [Azure AI Agent Service](/posts/agent/)
 - [MCP with Azure AI Agent Service](https://devblogs.microsoft.com/foundry/integrating-azure-ai-agents-mcp/)
 - [A2A protocol](https://learnopencv.com/googles-a2a-protocol-heres-what-you-need-to-know/)

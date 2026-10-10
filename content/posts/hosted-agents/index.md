@@ -88,7 +88,7 @@ NOTE: Docker Desktop is **not** required. The image is always built remotely, so
 
 Under the hood a hosted agent needs a **Foundry resource and project** in a [region that supports hosted agents](https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/hosted-agents#region-availability) and a **model deployment** (the wizard defaults to `gpt-5.4-mini`). In the default **`code` + remote build** mode that is essentially all that lands in your resource group. There is **no container registry** (the platform builds your image from the uploaded source and stores it on Microsoft-managed infrastructure); an **[Azure Container Registry](https://learn.microsoft.com/en-us/azure/container-registry/container-registry-intro)** only enters the picture on the **`container`** path, where you supply your own `Dockerfile`. Neither scaffold provisions **Application Insights**, so tracing is a quick opt-in: hit **Connect** in the portal's Traces tab (or add it to the infra and re-provision) and traces start flowing. `azd provision` stands the rest up for you, no resources to create by hand.
 
-TIP: Prefer to own the infrastructure yourself (fixed names, an existing project, Bicep in source control)? You can provision separately and point azd at the existing project. My [Foundry advanced workshop](https://beyondelastic.github.io/foundry-advanced-workshop/) does exactly that with a [`main.bicep`](https://github.com/beyondelastic/foundry-advanced-workshop/blob/main/infra/main.bicep) if you want that level of control.
+TIP: Prefer to own the infrastructure yourself (fixed names, an existing project, Bicep in source control)? You can provision separately and point azd at the existing project. My [Foundry advanced workshop](/foundry-advanced-workshop/) does exactly that with a [`main.bicep`](https://github.com/beyondelastic/foundry-advanced-workshop/blob/main/infra/main.bicep) if you want that level of control.
 
 ### Permissions
 
@@ -515,14 +515,14 @@ Because this space moves fast, it is worth calling out the updates Microsoft shi
 
 What I like most about hosted agents is that they let me keep the fun part (writing the agent) and hand off the hard part (running it safely at scale). Per-session isolation, a persistent filesystem, a built-in identity, scale-to-zero economics, and observability out of the box are exactly the things I used to cobble together by hand. Add source-code deployment, guardrails, and the agent optimizer on top, and the path from "works on my machine" to "running in production" gets dramatically shorter.
 
-If you want to get your hands dirty, the [Microsoft Foundry Advanced Workshop](https://beyondelastic.github.io/foundry-advanced-workshop/) walks through all of this end to end, from your first hosted agent to Toolbox, guardrails, and knowledge grounding. And since this space keeps evolving fast, keep an eye on the [official docs](https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/hosted-agents) for the latest. Happy building!
+If you want to get your hands dirty, the [Microsoft Foundry Advanced Workshop](/foundry-advanced-workshop/) walks through all of this end to end, from your first hosted agent to Toolbox, guardrails, and knowledge grounding. And since this space keeps evolving fast, keep an eye on the [official docs](https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/hosted-agents) for the latest. Happy building!
 
 ## Sources
 
 - [What are hosted agents? (Microsoft Learn)](https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/hosted-agents)
 - [Introducing the new hosted agents in Foundry Agent Service (Microsoft Foundry Blog)](https://devblogs.microsoft.com/foundry/introducing-the-new-hosted-agents-in-foundry-agent-service-secure-scalable-compute-built-for-agents/)
 - [What's New in Hosted Agents in Foundry Agent Service (Microsoft Foundry Blog)](https://devblogs.microsoft.com/foundry/hosted-agents-build26/)
-- [Microsoft Foundry Advanced Workshop](https://beyondelastic.github.io/foundry-advanced-workshop/)
+- [Microsoft Foundry Advanced Workshop](/foundry-advanced-workshop/)
 - [Microsoft Agent Framework documentation](https://learn.microsoft.com/en-us/agent-framework/)
 - [Host LangGraph agents as Foundry hosted agents](https://learn.microsoft.com/en-us/azure/foundry/how-to/develop/langchain-hosted-agents)
 - [What is Microsoft Foundry?](https://learn.microsoft.com/en-us/azure/ai-foundry/what-is-azure-ai-foundry)

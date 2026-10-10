@@ -20,7 +20,7 @@ That is exactly what **declarative agents** in Microsoft Foundry give you. In th
 Foundry gives you two shapes of agent, and both can be declarative:
 
 - **[Prompt agents](https://learn.microsoft.com/en-us/azure/foundry/agents/quickstarts/prompt-agent)** are defined *entirely* by configuration: a model deployment, a set of instructions, and some tools. There is no application code to run, Foundry runs the agent for you. The whole definition is a small artifact you can put in a file.
-- **[Hosted agents](https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/hosted-agents)** are your own code (Python or C#) that Foundry hosts and scales. They are still declared through a committed [`azure.yaml`](https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/author-azure-yaml) and deployed with a pipeline. I covered these in depth in [my hosted agents post](https://beyondelastic.github.io/posts/hosted-agents/).
+- **[Hosted agents](https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/hosted-agents)** are your own code (Python or C#) that Foundry hosts and scales. They are still declared through a committed [`azure.yaml`](https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/author-azure-yaml) and deployed with a pipeline. I covered these in depth in [my hosted agents post](/posts/hosted-agents/).
 
 The unifying idea is the important part: **the agent's definition is a versioned artifact**, not a state you poke into a UI. In the companion repo, that artifact is a single file, [`.foundry/agent-metadata.yaml`](https://github.com/beyondelastic/foundry-declarative-agent/blob/main/.foundry/agent-metadata.yaml):
 
@@ -247,7 +247,7 @@ TIP: your local run and the CI job call the *exact same* `sync_agent.py`, so "wo
 
 Declarative agents are the natural endpoint of taking agents seriously as production software. Once the definition is a file, everything good about modern DevOps just applies: pull requests, reproducible deploys, rollbacks, environment promotion, and the same pipeline for your agent as for your API. Prompt agent or hosted agent, the agent stops being a special snowflake in a portal and becomes what it always should have been, a versioned, reviewable, independently deployable service.
 
-If you want to build it yourself, clone the minimal [foundry-declarative-agent](https://github.com/beyondelastic/foundry-declarative-agent) and run through it top to bottom, it is the exact flow from this post. And if you want the other half of the story, bringing your *own code* as a hosted agent, that's [my hosted agents post](https://beyondelastic.github.io/posts/hosted-agents/). Happy shipping!
+If you want to build it yourself, clone the minimal [foundry-declarative-agent](https://github.com/beyondelastic/foundry-declarative-agent) and run through it top to bottom, it is the exact flow from this post. And if you want the other half of the story, bringing your *own code* as a hosted agent, that's [my hosted agents post](/posts/hosted-agents/). Happy shipping!
 
 ## Sources
 

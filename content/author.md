@@ -101,7 +101,7 @@ spec:
 
 You can also find me on [LinkedIn](https://www.linkedin.com/in/alexander-ullah-a278a0b7/).
 
-Please be aware that all posts and opinions are my own, see [Disclaimer](https://beyondelastic.github.io/disclaimer)
+Please be aware that all posts and opinions are my own, see [Disclaimer](/disclaimer)
 
 {{< gallery >}}
   <img src="/images/ms-badge1.png" class="grid-w33" />

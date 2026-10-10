@@ -13,7 +13,7 @@ These days, LLMs are not good enough anymore. We build agentic applications that
 
 ## Semantic Kernel
 
-Semantic Kernel is a lightweight multiagent orchestration framework. It allows us to build enterprise-grade multiagent AI apps by combining and integrating multiple AI models and systems. In one of my last [blog posts](https://beyondelastic.github.io/posts/multi-agent/), I explained how to use Semantic Kernel to have multiple AI agents interacting with each other via a group chat. Today we are going to look at extensibility! 
+Semantic Kernel is a lightweight multiagent orchestration framework. It allows us to build enterprise-grade multiagent AI apps by combining and integrating multiple AI models and systems. In one of my last [blog posts](/posts/multi-agent/), I explained how to use Semantic Kernel to have multiple AI agents interacting with each other via a group chat. Today we are going to look at extensibility!
 
 ### Function Calling
 
@@ -225,7 +225,7 @@ If you want to check out the code, you can find it on my GitHub [repo](https://g
 
 This was a very straightforward example of how to use Semantic Kernel plugins to reach out to external systems to provide up-to-date data to our LLM. Encapsulating native code within a plugin is a simple method to equip an AI agent with capabilities that it doesn't inherently support. This approach enables you to utilize your existing app development skills and code to enhance the functionality of your AI agents. Besides native code, MCP, and OpenAPI plugins, we can also make use of Retrieval Augmented Generation (RAG) patterns when it comes to data access and grounding. For example, we can build a data retrieval plugin using Azure AI Search as described [here](https://learn.microsoft.com/en-us/semantic-kernel/concepts/plugins/using-data-retrieval-functions-for-rag).
 
-Plenty of possibilities to make our AI agents smarter. I am especially excited about the MCP option, as I recently wrote an intro blog post to [MCP](https://beyondelastic.github.io/posts/mcp/), and I can't wait to combine it with Semantic Kernel. 
+Plenty of possibilities to make our AI agents smarter. I am especially excited about the MCP option, as I recently wrote an intro blog post to [MCP](/posts/mcp/), and I can't wait to combine it with Semantic Kernel.
 
 ## Sources
 
@@ -245,7 +245,6 @@ Plenty of possibilities to make our AI agents smarter. I am especially excited a
 - [Semantic Kernel RAG plugin](https://learn.microsoft.com/en-us/semantic-kernel/concepts/plugins/using-data-retrieval-functions-for-rag)
 - [EuroLeague Game Center](https://www.euroleaguebasketball.net/en/euroleague/game-center/)
 - [EuroLeague API](https://api-live.euroleague.net/swagger/index.html)
-
 
 
 

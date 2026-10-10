@@ -9,7 +9,7 @@ tags = ['Agents', 'Foundry', 'Azure', 'Semantic Kernel', 'Multi-Agent']
 
 ## Intro
 
-In my last post, I have covered Azure [AI Agent Service](https://beyondelastic.github.io/posts/agent/) and how it can be used to easily build and run AI agents on Azure. This time, we are going to look at Semantic Kernel as a framework to build, orchestrate and deploy AI agents or multi-agent applications. Semantic Kernel is an open-source development kit by Microsoft that offers a unified framework with a plugin-based architecture for easier integration and reduced complexity. It serves as efficient middleware, enabling fast development of enterprise-grade solutions by combining prompts with existing APIs.
+In my last post, I have covered Azure [AI Agent Service](/posts/agent/) and how it can be used to easily build and run AI agents on Azure. This time, we are going to look at Semantic Kernel as a framework to build, orchestrate and deploy AI agents or multi-agent applications. Semantic Kernel is an open-source development kit by Microsoft that offers a unified framework with a plugin-based architecture for easier integration and reduced complexity. It serves as efficient middleware, enabling fast development of enterprise-grade solutions by combining prompts with existing APIs.
 
 The Semantic Kernel SDK is available for C#, Python and Java. More details can be found on the [official GitHub repository](https://github.com/microsoft/semantic-kernel) and the [official Microsoft documentation](https://learn.microsoft.com/en-us/semantic-kernel/overview/).
 
@@ -255,7 +255,7 @@ In Azure AI Foundry, we can see that the corresponding Azure AI Agents are getti
 
 ## Summary
 
-This was a very simple example, but it shows how multiple agents can have different expertise and exchange ideas or knowledge about a specific topic via the Semantic Kernel group chat. Additionally, we can facilitate a structured conversation flow that allows the agents to efficiently collaborate and work on user provided tasks. Imagine that these agents would have access to different tools or knowledge sources to make them specialists for a specific task. We already looked at how to add tools (Code Interpreter Tool) to Azure AI Agents in my last blog [post](https://beyondelastic.github.io/posts/agent/). The same approach can be used in combination with Semantic Kernel to make our agents even smarter. 
+This was a very simple example, but it shows how multiple agents can have different expertise and exchange ideas or knowledge about a specific topic via the Semantic Kernel group chat. Additionally, we can facilitate a structured conversation flow that allows the agents to efficiently collaborate and work on user provided tasks. Imagine that these agents would have access to different tools or knowledge sources to make them specialists for a specific task. We already looked at how to add tools (Code Interpreter Tool) to Azure AI Agents in my last blog [post](/posts/agent/). The same approach can be used in combination with Semantic Kernel to make our agents even smarter.
 
 ## Sources
 
@@ -265,7 +265,7 @@ This was a very simple example, but it shows how multiple agents can have differ
 - [Semantic Kernel Roadmap H1 2025: Accelerating Agents, Processes, and Integration](https://devblogs.microsoft.com/semantic-kernel/semantic-kernel-roadmap-h1-2025-accelerating-agents-processes-and-integration/)
 - [AutoGen and Semantic Kernel, Part 2](https://devblogs.microsoft.com/semantic-kernel/semantic-kernel-and-autogen-part-2/)
 - [Azure AI Agent standard setup bicep template](https://github.com/Azure-Samples/azureai-samples/tree/main/scenarios/Agents/setup/standard-agent) 
-- [Intro to Azure AI Agent Service](https://beyondelastic.github.io/posts/agent/)
+- [Intro to Azure AI Agent Service](/posts/agent/)
 - [Microsoft Learn AI Agent Fundamentals](https://learn.microsoft.com/en-us/training/modules/ai-agent-fundamentals/)
 - [Introducing enterprise multi-agent support in Semantic Kernel](https://devblogs.microsoft.com/semantic-kernel/introducing-agents-in-semantic-kernel/)
 - [Semantic Kernel Agents are now Generally Available](https://devblogs.microsoft.com/semantic-kernel/semantic-kernel-agents-are-now-generally-available/)
