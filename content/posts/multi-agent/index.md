@@ -265,7 +265,7 @@ This was a very simple example, but it shows how multiple agents can have differ
 - [Semantic Kernel Roadmap H1 2025: Accelerating Agents, Processes, and Integration](https://devblogs.microsoft.com/semantic-kernel/semantic-kernel-roadmap-h1-2025-accelerating-agents-processes-and-integration/)
 - [AutoGen and Semantic Kernel, Part 2](https://devblogs.microsoft.com/semantic-kernel/semantic-kernel-and-autogen-part-2/)
 - [Azure AI Agent standard setup bicep template](https://github.com/Azure-Samples/azureai-samples/tree/main/scenarios/Agents/setup/standard-agent) 
-- [Intro to Azure AI Agent Service](/posts/agent/)
+- [Azure AI Agent Service: Build and Run AI Agents on Azure](/posts/agent/)
 - [Microsoft Learn AI Agent Fundamentals](https://learn.microsoft.com/en-us/training/modules/ai-agent-fundamentals/)
 - [Introducing enterprise multi-agent support in Semantic Kernel](https://devblogs.microsoft.com/semantic-kernel/introducing-agents-in-semantic-kernel/)
 - [Semantic Kernel Agents are now Generally Available](https://devblogs.microsoft.com/semantic-kernel/semantic-kernel-agents-are-now-generally-available/)

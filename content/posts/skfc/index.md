@@ -1,7 +1,7 @@
 +++
 date = '2025-04-23T09:42:05+02:00'
 draft = false
-title = 'Semantic Kernel Function Calling & Plugins'
+title = 'Semantic Kernel Function Calling & Plugins: Give AI Agents Real-World Tools'
 description = 'A closer look at Semantic Kernel Function Calling and Plugins, and how they let AI agents tap external APIs and data sources for richer context.'
 categories = ['AI']
 tags = ['Agents', 'Azure', 'Semantic Kernel', 'Function Calling', 'Plugins']
@@ -245,7 +245,6 @@ Plenty of possibilities to make our AI agents smarter. I am especially excited a
 - [Semantic Kernel RAG plugin](https://learn.microsoft.com/en-us/semantic-kernel/concepts/plugins/using-data-retrieval-functions-for-rag)
 - [EuroLeague Game Center](https://www.euroleaguebasketball.net/en/euroleague/game-center/)
 - [EuroLeague API](https://api-live.euroleague.net/swagger/index.html)
-
 
 
 
