@@ -4,6 +4,7 @@ draft = false
 title = 'Author'
 showZenMode = false
 showTableOfContents = false
+useHomepageBackground = true
 +++
 
 <style>
@@ -118,4 +119,3 @@ Please be aware that all posts and opinions are my own, see [Disclaimer](/discla
   <img src="/images/vexpertstars.png" class="grid-w33" />
   <img src="/images/vexpertapp.png" class="grid-w33" />
 {{< /gallery >}}
-

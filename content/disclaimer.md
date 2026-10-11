@@ -5,6 +5,7 @@ title = 'Disclaimer'
 showZenMode = false
 showTableOfContents = false
 disableSharing = true
+useHomepageBackground = true
 +++
 
 ## Disclaimer
